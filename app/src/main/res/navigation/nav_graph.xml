@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/popularMovieFragment">
+
+    <fragment
+        android:id="@+id/popularMovieFragment"
+        android:name="com.mr.bootcampweek5.ui.fragments.PopularMovieFragment"
+        android:label="fragment_popular_movie"
+        tools:layout="@layout/fragment_popular_movie" >
+        <action
+            android:id="@+id/action_popularMovieFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.mr.bootcampweek5.ui.fragments.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="now"
+            app:argType="com.mr.bootcampweek5.model.Result" />
+        <action
+            android:id="@+id/action_detailFragment_to_popularMovieFragment"
+            app:destination="@id/popularMovieFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.mr.bootcampweek5.ui.fragments.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+</navigation>
